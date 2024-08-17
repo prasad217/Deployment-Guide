@@ -1,0 +1,41 @@
+/* src/components/NetlifyGuide.css */
+
+.netlify-guide-container {
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.1rem;
+  }
+  
+  .netlify-guide-container h2,
+  .netlify-guide-container h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+  }
+  
+  .netlify-guide-container p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .netlify-guide-container a {
+    color: var(--text-color);
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+  
+  .netlify-guide-container a:hover {
+    color: var(--box-hover-bg-color);
+  }
+  
+  .guide-image {
+    width: 100%; /* Ensures image fills the container width */
+    max-width: 800px; /* Restricts the maximum width of the image */
+    height: auto; /* Maintains the aspect ratio of the image */
+    object-fit: contain; /* Ensures the entire image is visible without cropping */
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  

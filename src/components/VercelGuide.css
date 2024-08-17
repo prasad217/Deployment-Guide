@@ -1,0 +1,42 @@
+/* src/components/VercelGuide.css */
+
+.vercel-guide-container {
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.1rem;
+  }
+  
+  .vercel-guide-container h2,
+  .vercel-guide-container h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+  }
+  
+  .vercel-guide-container p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .vercel-guide-container a {
+    color: var(--text-color);
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+  
+  .vercel-guide-container a:hover {
+    color: var(--box-hover-bg-color);
+  }
+  
+  .guide-image {
+    width: 100%; /* Adjust to the desired width, or you can set a specific pixel value */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 800px; /* Optional: Set a max width to ensure images don't get too large */
+    height: 400px; /* Fixed height for consistency across all images */
+    object-fit: cover; /* Ensure images are scaled correctly */
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  

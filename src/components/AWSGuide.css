@@ -1,0 +1,211 @@
+.guide-container {
+  padding: 20px;
+  color: var(--text-color);
+}
+
+h2, h3, h4 {
+  color: var(--text-color);
+}
+
+.guide-image {
+  max-width: 100%;
+  max-height: 400px; /* Keep images small and fully visible */
+  width: auto;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  object-fit: contain; /* Ensures entire image is shown */
+}
+
+.code-block {
+  background-color: var(--code-bg);
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+  margin-bottom: 20px;
+  color: var(--code-text-color); /* Set the code text color */
+}
+
+.code-block pre {
+  margin: 0;
+  white-space: pre-wrap;
+  color: inherit; /* Inherit color from parent container */
+}
+
+.code-block button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.code-block button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.side-by-side {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.platform-section {
+  flex: 1;
+}
+
+:root {
+  --text-color: black;
+  --code-bg: #f5f5f5;
+  --code-text-color: #333;
+  --button-bg-color: #007bff;
+  --button-text-color: white;
+  --button-hover-bg-color: #0056b3;
+}
+
+body.dark-mode :root {
+  --text-color: white;
+  --code-bg: #333;
+  --code-text-color: #e0e0e0;
+  --button-bg-color: #0056b3;
+  --button-text-color: white;
+  --button-hover-bg-color: #003f7f;
+}
+
+/* Specific AWS guide styles */
+.aws-guide-container {
+  padding: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.aws-guide-container h2,
+.aws-guide-container h3 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.aws-guide-container p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.aws-guide-container a {
+  color: var(--link-color);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.aws-guide-container a:hover {
+  color: var(--link-hover-color);
+}
+
+.mac-windows-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.tab input[type="radio"] {
+  display: none;
+}
+
+.tab label {
+  display: block;
+  background-color: var(--box-bg-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab label:hover {
+  background-color: var(--box-hover-bg-color);
+}
+
+.tab input[type="radio"]:checked + label {
+  background-color: var(--box-active-bg-color);
+  color: var(--text-active-color);
+}
+
+.tab .content {
+  display: none;
+  background-color: var(--code-bg-color);
+  color: var(--code-text-color);
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.tab input[type="radio"]:checked ~ .content {
+  display: block;
+}
+
+pre {
+  margin: 0;
+  padding: 10px;
+  background-color: var(--code-bg-color);
+  color: var(--code-text-color);
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  background-color: var(--code-inline-bg-color);
+  color: var(--code-inline-text-color);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+:root {
+  /* Light Mode Colors */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --link-color: #1a73e8;
+  --link-hover-color: #1661c1;
+  --box-bg-color: #f1f1f1;
+  --box-hover-bg-color: #e2e2e2;
+  --box-active-bg-color: #e2e2e2;
+  --text-active-color: #333333;
+  --code-bg-color: #f5f5f5;
+  --code-text-color: #333333;
+  --code-inline-bg-color: #e8e8e8;
+  --code-inline-text-color: #333333;
+  --button-bg-color: #007bff;
+  --button-text-color: white;
+  --button-hover-bg-color: #0056b3;
+}
+
+body.dark-mode :root {
+  /* Dark Mode Colors */
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --link-color: #8ab4f8;
+  --link-hover-color: #669df6;
+  --box-bg-color: #333333;
+  --box-hover-bg-color: #444444;
+  --box-active-bg-color: #444444;
+  --text-active-color: #ffffff;
+  --code-bg-color: #2d2d2d;
+  --code-text-color: #e0e0e0;
+  --code-inline-bg-color: #3a3a3a;
+  --code-inline-text-color: #e0e0e0;
+  --button-bg-color: #0056b3;
+  --button-text-color: white;
+  --button-hover-bg-color: #003f7f;
+}

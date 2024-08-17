@@ -1,6 +1,9 @@
 // src/components/GitHubGuide.js
 import React, { useState } from 'react';
 import './GitHubGuide.css';
+import git1 from './images/git1.png'; // Import the images
+import git2 from './images/git2.jpeg';
+import git3 from './images/git3.png';
 
 const GitHubGuide = () => {
   const [selectedStack, setSelectedStack] = useState('react');
@@ -23,6 +26,7 @@ const GitHubGuide = () => {
       <p>
         Start by creating a new repository on GitHub. You can name it after your project or any other name of your choice.
       </p>
+      <img src={git1} alt="Create Repository" className="guide-image" />
 
       <h4>2. Add Your Project Files</h4>
       <p>
@@ -88,8 +92,14 @@ const GitHubGuide = () => {
       {selectedStack === 'html' && (
         <div>
           <p>
-            For HTML/CSS/JavaScript projects, go to the repository settings, scroll down to the GitHub Pages section, and select the branch you want to deploy.
+            For HTML/CSS/JavaScript projects, go to the repository settings by clicking on the "Settings" tab as shown below:
           </p>
+          <img src={git2} alt="GitHub Settings" className="guide-image" />
+          <p>
+            Scroll down to the "Pages" section and select the branch you want to deploy from the dropdown menu, as shown here:
+          </p>
+          <img src={git3} alt="GitHub Pages Settings" className="guide-image" />
+          <p>Your site will be published at `https://your-username.github.io/repository-name`.</p>
         </div>
       )}
 

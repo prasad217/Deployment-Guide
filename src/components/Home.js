@@ -26,9 +26,15 @@ const Home = () => {
       <a href="/github-deployment" className="platform-box">
           GitHub
         </a>
-        <div className="platform-box">Vercel</div>
-        <div className="platform-box">Netlify</div>
-        <div className="platform-box">AWS Instance</div>
+        <a href="/vercel-deployment" className="platform-box">
+          Vercel
+        </a>
+        <a href="/netlify-deployment" className="platform-box">
+          Netlify 
+        </a>  
+       <a href="/aws-deployment" className="platform-box">  
+          AWS
+        </a>
       </div>
     </div>
   );

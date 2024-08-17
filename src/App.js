@@ -4,6 +4,9 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import BlogPost from './components/BlogPost';
 import GitHubGuide from './components/GitHubGuide';
+import VercelGuide from './components/VercelGuide';
+import NetlifyGuide from './components/NetlifyGuide';
+import AWSGuide from './components/AWSGuide';
 import './App.css';
 
 const App = () => {
@@ -29,6 +32,9 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/post/:id" element={<BlogPost />} />
             <Route path="/github-deployment" element={<GitHubGuide />} />
+            <Route path="/vercel-deployment" element={<VercelGuide />} />
+            <Route path="/netlify-deployment" element={<NetlifyGuide />} />
+            <Route path="/aws-deployment" element={<AWSGuide />} />
           </Routes>
         </div>
       </Router>
