@@ -18,7 +18,34 @@ const AWSGuide = () => {
     <div className="guide-container">
       <h2>Deploying on AWS EC2 Instance</h2>
 
-      <h3>Step 1: Launch an EC2 Instance</h3>
+      <h3>Step 1: Transfer Your Local Project to the EC2 Instance</h3>
+      <div className="side-by-side">
+        <div className="platform-section">
+          <h4>Mac:</h4>
+          <p>1. Navigate to your local project directory.</p>
+          <p>2. Use the following command to copy your project to the EC2 instance:</p>
+          <div className="code-block">
+            <pre>
+              scp -r /path-to-your-project ec2-user@your-ec2-public-ip:/home/ec2-user/
+            </pre>
+            <button onClick={() => copyToClipboard('scp -r /path-to-your-project ec2-user@your-ec2-public-ip:/home/ec2-user/')}>Copy</button>
+          </div>
+        </div>
+
+        <div className="platform-section">
+          <h4>Windows:</h4>
+          <p>1. Navigate to your local project directory.</p>
+          <p>2. Use the following command in Git Bash or transfer using WinSCP:</p>
+          <div className="code-block">
+            <pre>
+              scp -r /path-to-your-project ec2-user@your-ec2-public-ip:/home/ec2-user/
+            </pre>
+            <button onClick={() => copyToClipboard('scp -r /path-to-your-project ec2-user@your-ec2-public-ip:/home/ec2-user/')}>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>Step 2: Launch an EC2 Instance</h3>
       <p>1. Log in to your AWS Management Console.</p>
       <p>2. In the top search bar, type "EC2" and select "EC2" from the dropdown (as shown below).</p>
       <img src={aws1} alt="EC2 Search" className="guide-image" />
@@ -39,7 +66,7 @@ const AWSGuide = () => {
       <p>7. Ensure you have selected a key pair for SSH access to the instance.</p>
       <img src={aws7} alt="Key Pair" className="guide-image" />
 
-      <h3>Step 2: Connect to Your Instance</h3>
+      <h3>Step 3: Connect to Your Instance</h3>
       <div className="side-by-side">
         <div className="platform-section">
           <h4>Mac:</h4>
@@ -66,54 +93,11 @@ const AWSGuide = () => {
         </div>
       </div>
 
-      <h3>Step 3: Deploy Your Frontend</h3>
-      <div className="side-by-side">
-        <div className="platform-section">
-          <h4>Mac:</h4>
-          <p>1. Navigate to your frontend directory.</p>
-          <p>2. Build your project:</p>
-          <div className="code-block">
-            <pre>
-              cd /path-to-your-frontend<br />
-              npm run build
-            </pre>
-            <button onClick={() => copyToClipboard('cd /path-to-your-frontend\nnpm run build')}>Copy</button>
-          </div>
-          <p>3. Copy the build folder to your server:</p>
-          <div className="code-block">
-            <pre>
-              scp -r build/ ec2-user@your-ec2-public-ip:/var/www/html
-            </pre>
-            <button onClick={() => copyToClipboard('scp -r build/ ec2-user@your-ec2-public-ip:/var/www/html')}>Copy</button>
-          </div>
-        </div>
-
-        <div className="platform-section">
-          <h4>Windows:</h4>
-          <p>1. Navigate to your frontend directory.</p>
-          <p>2. Build your project:</p>
-          <div className="code-block">
-            <pre>
-              cd /path-to-your-frontend<br />
-              npm run build
-            </pre>
-            <button onClick={() => copyToClipboard('cd /path-to-your-frontend\nnpm run build')}>Copy</button>
-          </div>
-          <p>3. Use WinSCP to transfer the build folder, or use Git Bash:</p>
-          <div className="code-block">
-            <pre>
-              scp -r build/ ec2-user@your-ec2-public-ip:/var/www/html
-            </pre>
-            <button onClick={() => copyToClipboard('scp -r build/ ec2-user@your-ec2-public-ip:/var/www/html')}>Copy</button>
-          </div>
-        </div>
-      </div>
-
       <h3>Step 4: Deploy Your Backend</h3>
       <div className="side-by-side">
         <div className="platform-section">
           <h4>Mac:</h4>
-          <p>1. Navigate to your backend directory.</p>
+          <p>1. Navigate to your backend directory on the EC2 instance.</p>
           <p>2. Install dependencies and start the server:</p>
           <div className="code-block">
             <pre>
@@ -127,7 +111,7 @@ const AWSGuide = () => {
 
         <div className="platform-section">
           <h4>Windows:</h4>
-          <p>1. Navigate to your backend directory.</p>
+          <p>1. Navigate to your backend directory on the EC2 instance.</p>
           <p>2. Install dependencies and start the server:</p>
           <div className="code-block">
             <pre>
