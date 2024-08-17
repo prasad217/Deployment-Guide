@@ -209,3 +209,55 @@ body.dark-mode :root {
   --button-text-color: white;
   --button-hover-bg-color: #003f7f;
 }
+
+.db-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px; /* Reduced margin */
+}
+
+.tab {
+  flex: 1;
+  margin: 0 5px; /* Reduced margin between tabs */
+}
+
+.tab input[type="radio"] {
+  display: none;
+}
+
+.tab label {
+  display: block;
+  background-color: var(--box-bg-color);
+  color: var(--text-color);
+  padding: 6px; /* Further reduced padding */
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.85rem; /* Adjusted font size */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab label:hover {
+  background-color: var(--box-hover-bg-color);
+}
+
+.tab input[type="radio"]:checked + label {
+  background-color: var(--box-active-bg-color);
+  color: var(--text-active-color);
+}
+
+.tab .content {
+  display: none;
+  background-color: var(--code-bg-color);
+  color: var(--code-text-color);
+  padding: 3px; /* Further reduced padding */
+  border-radius: 5px;
+  margin-top: 5px; /* Reduced margin */
+  max-height: 0px; /* Further reduced height */
+  max-width: 400px; /* Added max-width to reduce length */
+  overflow-y: auto; /* Add scroll if content is too large */
+}
+
+.tab input[type="radio"]:checked ~ .content {
+  display: block;
+}

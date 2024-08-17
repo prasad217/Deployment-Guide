@@ -18,34 +18,7 @@ const AWSGuide = () => {
     <div className="guide-container">
       <h2>Deploying on AWS EC2 Instance</h2>
 
-      <h3>Step 1: Transfer Your Local Project to the EC2 Instance</h3>
-      <div className="side-by-side">
-        <div className="platform-section">
-          <h4>Mac:</h4>
-          <p>1. Navigate to your local project directory.</p>
-          <p>2. Use the following command to copy your project to the EC2 instance:</p>
-          <div className="code-block">
-            <pre>
-              scp -r /path-to-your-project ec2-user@your-ec2-public-ip:/home/ec2-user/
-            </pre>
-            <button onClick={() => copyToClipboard('scp -r /path-to-your-project ec2-user@your-ec2-public-ip:/home/ec2-user/')}>Copy</button>
-          </div>
-        </div>
-
-        <div className="platform-section">
-          <h4>Windows:</h4>
-          <p>1. Navigate to your local project directory.</p>
-          <p>2. Use the following command in Git Bash or transfer using WinSCP:</p>
-          <div className="code-block">
-            <pre>
-              scp -r /path-to-your-project ec2-user@your-ec2-public-ip:/home/ec2-user/
-            </pre>
-            <button onClick={() => copyToClipboard('scp -r /path-to-your-project ec2-user@your-ec2-public-ip:/home/ec2-user/')}>Copy</button>
-          </div>
-        </div>
-      </div>
-
-      <h3>Step 2: Launch an EC2 Instance</h3>
+      <h3>Step 1: Launch an EC2 Instance</h3>
       <p>1. Log in to your AWS Management Console.</p>
       <p>2. In the top search bar, type "EC2" and select "EC2" from the dropdown (as shown below).</p>
       <img src={aws1} alt="EC2 Search" className="guide-image" />
@@ -66,7 +39,7 @@ const AWSGuide = () => {
       <p>7. Ensure you have selected a key pair for SSH access to the instance.</p>
       <img src={aws7} alt="Key Pair" className="guide-image" />
 
-      <h3>Step 3: Connect to Your Instance</h3>
+      <h3>Step 2: Connect to Your Instance</h3>
       <div className="side-by-side">
         <div className="platform-section">
           <h4>Mac:</h4>
@@ -93,7 +66,66 @@ const AWSGuide = () => {
         </div>
       </div>
 
-      <h3>Step 4: Deploy Your Backend</h3>
+      <h3>Step 3: Transfer Your Local Project to the EC2 Instance</h3>
+<div className="side-by-side">
+  <div className="platform-section">
+    <h4>Mac:</h4>
+    <p>1. Open Terminal.</p>
+    <p>2. Use the following `rsync` command to transfer your local project directory to the EC2 instance:</p>
+    <div className="code-block">
+      <pre>
+        rsync -avz -e "ssh -i your-key.pem" /path-to-your-local-project/ ec2-user@your-ec2-public-ip:/home/ec2-user/your-project-directory/
+      </pre>
+      <button onClick={() => copyToClipboard('rsync -avz -e "ssh -i your-key.pem" /path-to-your-local-project/ ec2-user@your-ec2-public-ip:/home/ec2-user/your-project-directory/')}>Copy</button>
+    </div>
+  </div>
+
+  <div className="platform-section">
+    <h4>Windows:</h4>
+    <p>1. Use Git Bash or an SSH client like PuTTY.</p>
+    <p>2. Use the following `rsync` command to transfer your local project directory to the EC2 instance:</p>
+    <div className="code-block">
+      <pre>
+        rsync -avz -e "ssh -i your-key.pem" /path-to-your-local-project/ ec2-user@your-ec2-public-ip:/home/ec2-user/your-project-directory/
+      </pre>
+      <button onClick={() => copyToClipboard('rsync -avz -e "ssh -i your-key.pem" /path-to-your-local-project/ ec2-user@your-ec2-public-ip:/home/ec2-user/your-project-directory/')}>Copy</button>
+    </div>
+  </div>
+</div>
+
+
+      <h3>Step 4: Deploy Your Frontend</h3>
+      <div className="side-by-side">
+        <div className="platform-section">
+          <h4>Mac:</h4>
+          <p>1. Navigate to your frontend directory on the EC2 instance.</p>
+          <p>2. Build your project:</p>
+          <div className="code-block">
+            <pre>
+              cd /home/ec2-user/your-project-directory/frontend<br />
+              npm run build
+            </pre>
+            <button onClick={() => copyToClipboard('cd /home/ec2-user/your-project-directory/frontend\nnpm run build')}>Copy</button>
+          </div>
+          <p>3. Serve your frontend files using Nginx or Apache (setup required).</p>
+        </div>
+
+        <div className="platform-section">
+          <h4>Windows:</h4>
+          <p>1. Navigate to your frontend directory on the EC2 instance.</p>
+          <p>2. Build your project:</p>
+          <div className="code-block">
+            <pre>
+              cd /home/ec2-user/your-project-directory/frontend<br />
+              npm run build
+            </pre>
+            <button onClick={() => copyToClipboard('cd /home/ec2-user/your-project-directory/frontend\nnpm run build')}>Copy</button>
+          </div>
+          <p>3. Serve your frontend files using Nginx or Apache (setup required).</p>
+        </div>
+      </div>
+
+      <h3>Step 5: Deploy Your Backend</h3>
       <div className="side-by-side">
         <div className="platform-section">
           <h4>Mac:</h4>
@@ -101,11 +133,11 @@ const AWSGuide = () => {
           <p>2. Install dependencies and start the server:</p>
           <div className="code-block">
             <pre>
-              cd /path-to-your-backend<br />
+              cd /home/ec2-user/your-project-directory/backend<br />
               npm install<br />
               pm2 start index.js
             </pre>
-            <button onClick={() => copyToClipboard('cd /path-to-your-backend\nnpm install\npm2 start index.js')}>Copy</button>
+            <button onClick={() => copyToClipboard('cd /home/ec2-user/your-project-directory/backend\nnpm install\npm2 start index.js')}>Copy</button>
           </div>
         </div>
 
@@ -115,18 +147,73 @@ const AWSGuide = () => {
           <p>2. Install dependencies and start the server:</p>
           <div className="code-block">
             <pre>
-              cd /path-to-your-backend<br />
+              cd /home/ec2-user/your-project-directory/backend<br />
               npm install<br />
               pm2 start index.js
             </pre>
-            <button onClick={() => copyToClipboard('cd /path-to-your-backend\nnpm install\npm2 start index.js')}>Copy</button>
+            <button onClick={() => copyToClipboard('cd /home/ec2-user/your-project-directory/backend\nnpm install\npm2 start index.js')}>Copy</button>
           </div>
         </div>
       </div>
 
-      <h3>Step 5: Access Your Application</h3>
+      <h3>Step 6: Deploy Your Database</h3>
+<div className="db-tabs">
+  <div className="tab">
+    <input type="radio" id="mysql-tab" name="db-tab" defaultChecked />
+    <label htmlFor="mysql-tab">MySQL</label>
+    <div className="content">
+      <div className="code-block">
+        <pre>
+          sudo apt install mysql-server<br />
+          sudo systemctl start mysql<br />
+          sudo systemctl enable mysql<br />
+          sudo mysql -u root
+        </pre>
+        <button onClick={() => copyToClipboard('sudo apt install mysql-server\nsudo systemctl start mysql\nsudo systemctl enable mysql\nsudo mysql -u root')}>Copy</button>
+      </div>
+      <div className="code-block">
+        <pre>
+          CREATE DATABASE my_app;<br />
+          CREATE USER 'my_app_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';<br />
+          GRANT ALL PRIVILEGES ON my_app.* TO 'my_app_user'@'localhost';
+        </pre>
+        <button onClick={() => copyToClipboard("CREATE DATABASE my_app;\nCREATE USER 'my_app_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';\nGRANT ALL PRIVILEGES ON my_app.* TO 'my_app_user'@'localhost';")}>Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <div className="tab">
+    <input type="radio" id="postgres-tab" name="db-tab" />
+    <label htmlFor="postgres-tab">Postgres</label>
+    <div className="content">
+      <div className="code-block">
+        <pre>
+          sudo apt install postgresql postgresql-contrib<br />
+          sudo systemctl start postgresql<br />
+          sudo systemctl enable postgresql<br />
+          sudo -i -u postgres
+        </pre>
+        <button onClick={() => copyToClipboard('sudo apt install postgresql postgresql-contrib\nsudo systemctl start postgresql\nsudo systemctl enable postgresql\nsudo -i -u postgres')}>Copy</button>
+      </div>
+      <div className="code-block">
+        <pre>
+          CREATE DATABASE my_app;<br />
+          CREATE USER my_app_user WITH ENCRYPTED PASSWORD 'MyNewPass1!';<br />
+          GRANT ALL PRIVILEGES ON DATABASE my_app TO my_app_user;
+        </pre>
+        <button onClick={() => copyToClipboard("CREATE DATABASE my_app;\nCREATE USER my_app_user WITH ENCRYPTED PASSWORD 'MyNewPass1!';\nGRANT ALL PRIVILEGES ON DATABASE my_app TO my_app_user;")}>Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <h3>Step 7: Access Your Application</h3>
       <p>Access your frontend at <code>http://your-ec2-public-ip</code>.</p>
       <p>Access your backend API routes at <code>http://your-ec2-public-ip:port</code>.</p>
+
+      <h3>Step 8: Monitor and Manage Your Application</h3>
+      <p>Use AWS CloudWatch, PM2 monitoring, or other tools to monitor the health and performance of your application.</p>
     </div>
   );
 };
