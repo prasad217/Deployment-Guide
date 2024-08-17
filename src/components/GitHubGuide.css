@@ -1,0 +1,73 @@
+/* src/components/GitHubGuide.css */
+
+.github-guide-container {
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .github-guide-container h2, 
+  .github-guide-container h3, 
+  .github-guide-container h4 {
+    color: var(--text-color);
+  }
+  
+  .github-guide-container p {
+    line-height: 1.6;
+  }
+  
+  .code-block {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--box-bg-color);
+    border-radius: 5px;
+    color: var(--box-text-color);
+    overflow: auto;
+  }
+  
+  .code-block pre {
+    margin: 0;
+    color: var(--box-text-color); /* Text color inside the code block */
+  }
+  
+  .stack-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .stack-options button {
+    padding: 10px 20px;
+    background-color: var(--box-bg-color);
+    color: var(--box-text-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .stack-options button.active {
+    background-color: var(--box-hover-bg-color);
+    color: var(--text-color);
+  }
+  
+  .copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .copy-button:hover {
+    background-color: var(--box-hover-bg-color);
+    color: var(--box-text-color);
+  }
+  
