@@ -7,6 +7,7 @@ import GitHubGuide from './components/GitHubGuide';
 import VercelGuide from './components/VercelGuide';
 import NetlifyGuide from './components/NetlifyGuide';
 import AWSGuide from './components/AWSGuide';
+import Footer from './components/Footer';
 import './App.css';
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/aws-deployment" element={<AWSGuide />} />
           </Routes>
         </div>
+        <Footer />
       </Router>
     </div>
   );

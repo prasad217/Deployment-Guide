@@ -1,0 +1,44 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+  }
+  
+  .footer-content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .copyright-symbol {
+    margin-right: 5px;
+    font-size: 16px;
+    color: white;
+    text-shadow: 0 0 1px yellow; 
+  }
+  
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    text-shadow: 0 0 1px yellow; 
+  }
+  
+  .footer-link:hover {
+    color: #f0f0f0;
+  }
+  
+  .github-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    filter: drop-shadow(0 0 8px yellow); /* Yellow glow effect for the logo */
+  }
+  

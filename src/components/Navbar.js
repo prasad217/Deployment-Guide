@@ -16,9 +16,6 @@ const Navbar = ({ toggleTheme, theme }) => (
             <Link className="nav-link" to="/">Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/about">About</Link>
-          </li>
-          <li className="nav-item">
             <button onClick={toggleTheme} className="btn btn-outline-light ml-2">
               {theme === 'light' ? 'Dark' : 'Light'} Mode
             </button>
