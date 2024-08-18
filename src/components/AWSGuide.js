@@ -1,22 +1,76 @@
-import React from 'react';
-import './AWSGuide.css'; // Import your custom CSS for styling
-import aws1 from './images/aws1.png'; // Update with correct paths
+import React, { useState } from 'react';
+import './AWSGuide.css';
+import aws1 from './images/aws1.png'; 
 import aws2 from './images/aws2.png';
 import aws3 from './images/aws3.png';
 import aws4 from './images/aws4.png';
 import aws5 from './images/aws5.png';
 import aws6 from './images/aws6.png';
 import aws7 from './images/aws7.png';
+import warningIcon from './images/warning.png'; 
+import budgetVideo from './videos/budget.mov';
 
 const AWSGuide = () => {
+  const [showWarning, setShowWarning] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
     alert('Code copied to clipboard!');
   };
 
+  const handleWarningClick = () => {
+    setShowWarning(true);
+  };
+
+  const handleVideoClick = () => {
+    setShowVideo(true);
+  };
+
+  const closeVideo = () => {
+    setShowVideo(false);
+  };
+
   return (
     <div className="guide-container">
       <h2>Deploying on AWS EC2 Instance</h2>
+
+      <div className="warning-notice" onClick={handleWarningClick}>
+        <img src={warningIcon} alt="Warning Icon" className="warning-icon" />
+        <span>Warning: If you are deploying the website on the free tier, please read these instructions.</span>
+      </div>
+
+      {showWarning && (
+        <div className="warning-box">
+          <h4>Important Notice</h4>
+          <p>Please ensure the following when deploying on the AWS free tier:</p>
+          <ul>
+            <li>Make sure the region for deployment is set to the default.</li>
+            <li>Select instance types like <code>t3.micro</code>, as some tools are only eligible for the free tier.</li>
+            <li>Create a zero budget to monitor costs and avoid unexpected charges.</li>
+          </ul>
+          <p>
+            <a href="#!" onClick={handleVideoClick}>
+              See a video on how to create a budget.
+            </a>
+          </p>
+          <button onClick={() => setShowWarning(false)}>Close</button>
+        </div>
+      )}
+
+      {showVideo && (
+        <div className="video-popup">
+          <div className="video-popup-content">
+            <button className="close-video" onClick={closeVideo}>
+              &times;
+            </button>
+            <video width="400" controls>
+              <source src={budgetVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
 
       <h3>Step 1: Launch an EC2 Instance</h3>
       <p>1. Log in to your AWS Management Console.</p>
@@ -33,10 +87,10 @@ const AWSGuide = () => {
       <img src={aws4} alt="Configure Instance" className="guide-image" />
       <img src={aws5} alt="Configure Storage" className="guide-image" />
 
-      <p>6. Review your instance details and click "Launch Instance."</p>
+      <p>6. Ensure you have selected a key pair for SSH access to the instance.</p>
       <img src={aws6} alt="Launch Instance" className="guide-image" />
-
-      <p>7. Ensure you have selected a key pair for SSH access to the instance.</p>
+     
+      <p>7. Update the storage if required or else keep it default and Review your instance details and click "Launch Instance."</p>
       <img src={aws7} alt="Key Pair" className="guide-image" />
 
       <h3>Step 2: Connect to Your Instance</h3>

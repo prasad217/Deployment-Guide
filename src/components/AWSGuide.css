@@ -261,3 +261,54 @@ body.dark-mode :root {
 .tab input[type="radio"]:checked ~ .content {
   display: block;
 }
+
+.warning-notice {
+  display: flex;
+  align-items: center;
+  background-color: #ffeb3b;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.warning-notice:hover {
+  background-color: #fdd835;
+}
+
+.warning-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.warning-box {
+  background-color: #f44336;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.warning-box h4 {
+  margin-top: 0;
+}
+
+.warning-box ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.warning-box button {
+  background-color: #ffffff;
+  color: #f44336;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.warning-box button:hover {
+  background-color: #fdd835;
+  color: black;
+}
