@@ -1,48 +1,48 @@
-// src/components/NetlifyGuide.js
+// src/components/VercelGuide.js
 import React from 'react';
-import './NetlifyGuide.css'; // Create and import your CSS file for styling
-import netlify1 from './images/net1.png'; // Import the images
-import netlify2 from './images/net2.png';
-import netlify3 from './images/net3.png';
+import './VercelGuide.css'; // Create and import your CSS file for styling
+import vercel1 from './images/ver1.png'; // Import the images
+import vercel2 from './images/ver2.png';
+import vercel3 from './images/ver3.png';
 
-const NetlifyGuide = () => {
+const VercelGuide = () => {
   return (
-    <div className="netlify-guide-container">
-      <h2>Deploying Your Project on Netlify</h2>
+    <div className="vercel-guide-container">
+      <h2>Deploying Your Project on Vercel</h2>
       <p>
-        Netlify is a popular platform for deploying static websites and modern web applications. Follow these steps to deploy your project on Netlify.
+        Vercel is a cloud platform for static websites and frontend frameworks. Follow these steps to deploy your project on Vercel.
       </p>
 
       <h3>Step 1: Sign Up or Log In</h3>
       <p>
-        Visit <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify's website</a> and sign up or log in using your GitHub account. Once logged in, you'll see the Netlify dashboard as shown below.
+        Visit <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel's website</a> and sign up or log in using your GitHub, GitLab, or Bitbucket account. Once logged in, you'll see the Vercel dashboard as shown below.
       </p>
-      <img src={netlify1} alt="Netlify Dashboard" className="guide-image" />
+      <img src={vercel1} alt="Vercel Dashboard" className="guide-image" />
 
-      <h3>Step 2: Search for Your Repository</h3>
+      <h3>Step 2: Import Your Git Repository</h3>
       <p>
-        In the dashboard, use the search bar to find the GitHub repository you want to deploy. Start typing the name of your repository in the search bar, and select it from the list of results.
+        In the dashboard, click on the "New Project" button. Then, import your GitHub, GitLab, or Bitbucket repository by selecting the appropriate platform and connecting your account.
       </p>
-      <img src={netlify1} alt="Search for Repository on Netlify" className="guide-image" />
+      <img src={vercel2} alt="Import Repository on Vercel" className="guide-image" />
 
-      <h3>Step 3: Create a New Site</h3>
+      <h3>Step 3: Configure Your Project</h3>
       <p>
-        Once you’ve selected your repository, click on the "New site from Git" button. This will allow you to connect your GitHub repository to Netlify for deployment. The image below shows how to select your repository.
+        After importing your repository, Vercel will automatically detect the framework you’re using. You can adjust the settings if necessary. Once ready, click on "Deploy."
       </p>
-      <img src={netlify2} alt="Create a New Site on Netlify" className="guide-image" />
+      <img src={vercel3} alt="Configure and Deploy on Vercel" className="guide-image" />
 
       <h3>Step 4: Deploy Your Site</h3>
       <p>
-        After configuring your site settings, click the "Deploy site" button. Netlify will automatically build and deploy your project. The deployment process and result are shown below.
+        After configuring your project, Vercel will begin the deployment process. It will automatically build and deploy your project. The deployment process is shown below.
       </p>
-      <img src={netlify3} alt="Deploy Site on Netlify" className="guide-image" />
+      <img src={vercel3} alt="Deploy Site on Vercel" className="guide-image" />
 
       <h3>Step 5: Access Your Deployed Site</h3>
       <p>
-        Once the deployment is complete, your site will be accessible at a URL provided by Netlify. You can also add a custom domain if you have one.
+        Once the deployment is complete, your site will be accessible at a URL provided by Vercel. You can also add a custom domain if you have one.
       </p>
     </div>
   );
 };
 
-export default NetlifyGuide;
+export default VercelGuide;
